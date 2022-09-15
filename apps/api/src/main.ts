@@ -35,9 +35,9 @@ app.post('/login', async (req, res) => {
     res.status(400).send('User or password are required.');
     return;
   }
-  const user = await prisma.user.findUnique({
+  const user = await prisma.user.findFirst({
     where: {
-      id: username,
+      email: username,
     },
   });
   if (!user) {
@@ -71,9 +71,9 @@ app.post('/signup', async (req, res) => {
     res.status(400).send('User or password are required.');
     return;
   }
-  const user = await prisma.user.findUnique({
+  const user = await prisma.user.findFirst({
     where: {
-      id: username,
+      email: username,
     },
   });
   if (user) {
@@ -83,7 +83,7 @@ app.post('/signup', async (req, res) => {
   const hash = bcrypt.hashSync(password, 10);
   await prisma.user.create({
     data: {
-      id: username,
+      email: username,
       password: hash,
       name: name,
     },
