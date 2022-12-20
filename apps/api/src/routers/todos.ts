@@ -1,11 +1,9 @@
-import { PrismaClient } from '@prisma/client';
 import { TodoRequest } from '@todo-frontend-backend/api-interfaces';
+import prisma from '../client';
 import { Router } from 'express';
 import { TodoUrlParams } from '../types/TodoTypes';
 
 export const todosRouter = Router();
-
-const prisma = new PrismaClient();
 
 todosRouter.get('/todos', async (req, res) => {
   const auth = req.auth;
