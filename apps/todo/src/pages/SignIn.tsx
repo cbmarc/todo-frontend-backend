@@ -30,7 +30,7 @@ const SignIn = () => {
       <Wrapper>
         <Input label="username" />
         <Input label="password" />
-        <Button text="sign in" />
+        <Button>sign in</Button>
       </Wrapper>
 
       <Text>

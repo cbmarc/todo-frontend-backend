@@ -1,4 +1,5 @@
 import { styled } from '@stitches/react';
+import { PropsWithChildren } from 'react';
 
 const StyledButton = styled('button', {
   backgroundColor: '#E9D540',
@@ -13,8 +14,8 @@ const StyledButton = styled('button', {
   marginTop: '24px',
 });
 
-const Button = ({ text }: { text: string }) => {
-  return <StyledButton>{text}</StyledButton>;
+const Button: React.FC<PropsWithChildren> = ({ children }) => {
+  return <StyledButton>{children}</StyledButton>;
 };
 
 export default Button;
